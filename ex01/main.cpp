@@ -67,7 +67,7 @@ int main(void)
 		userAction = phonebook.getUserAction();
 		if (userAction == "ADD")
 		{
-			std::cout << "User choose ADD!" << std::endl;	
+			phonebook.addContact();	
 		}
 		if (userAction == "SEARCH")
 		{

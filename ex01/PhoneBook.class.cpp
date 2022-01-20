@@ -37,5 +37,15 @@ std::string PhoneBook::getUserAction(void)
 
 void PhoneBook::addContact(void)
 {
+	std::string option;
+
+	this->contacts[nContacts].index = this->nContacts;
+	this->contacts[nContacts].setFirsName();
+	this->contacts[nContacts].setlastName();
+	this->contacts[nContacts].setNickname();
+	this->contacts[nContacts].setPhoneNumber();
+	this->contacts[nContacts].setDarkestSecret();
+	if (this->nContacts < 8)
+		this->nContacts +=1;
 
 }

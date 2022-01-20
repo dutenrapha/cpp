@@ -43,27 +43,67 @@ std::string Contact::getDarkestSecret(void) const
 	return this->_darkestSecret;
 }
 
-void  Contact::setFirsName(std::string firstName)
+void  Contact::setFirsName(void)
 {
+	std::string firstName;
+
+	firstName = "";
+	while (firstName == "")
+	{
+		std::cout << "First name: " << std::endl;
+		std::cin >> firstName;
+	}
 	this->_firstName = firstName;
 }
 
-void  Contact::setlastName(std::string lastName)
+void  Contact::setlastName(void)
 {
+	std::string lastName;
+
+	lastName = "";
+	while (lastName == "")
+	{
+		std::cout << "Last name: " << std::endl;
+		std::cin >> lastName;
+	}
 	this->_lastName = lastName;
 }
 
-void  Contact::setNickname(std::string nickname)
+void  Contact::setNickname(void)
 {
+	std::string nickname;
+
+	nickname = "";
+	while (nickname == "")
+	{
+		std::cout << "Nickname: " << std::endl;
+		std::cin >> nickname;
+	}
 	this->_nickname = nickname;
 }
 
-void  Contact::setPhoneNumber(std::string phoneNumber)
+void  Contact::setPhoneNumber(void)
 {
+	std::string phoneNumber;
+	
+	phoneNumber = "";
+	while (phoneNumber == "")
+	{
+		std::cout << "Phone number: " << std::endl;
+		std::cin >> phoneNumber;
+	}
 	this->_phoneNumber = phoneNumber;
 }
 
-void  Contact::setDarkestSecret(std::string darkestSecret)
+void  Contact::setDarkestSecret(void)
 {
+	std::string darkestSecret;
+
+	darkestSecret = "";
+	while (darkestSecret == "")
+	{
+		std::cout << "Darkest Secret: " << std::endl;
+		std::cin >> darkestSecret;
+	}
 	this->_darkestSecret = darkestSecret;
 }
