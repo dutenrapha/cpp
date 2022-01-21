@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:38:36 by coder             #+#    #+#             */
-/*   Updated: 2022/01/20 02:50:22 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/21 21:09:35 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ public:
 	PhoneBook(void);
 	std::string getUserAction(void);
 	void addContact(void);
+	void searchContact(void);
 };
 
 #endif

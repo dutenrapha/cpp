@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 00:54:48 by coder             #+#    #+#             */
-/*   Updated: 2022/01/20 03:47:50 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/21 20:51:19 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ class Contact {
 
 public:
 	int index;
+
 	Contact(void);
+	int 			getIndex(void) const;
 	std::string 	getFirsName(void) const;
 	std::string 	getlastName(void) const;
 	std::string  	getNickname(void) const;

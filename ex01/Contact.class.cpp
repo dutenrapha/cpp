@@ -18,6 +18,11 @@ Contact::Contact()
 	return;
 }
 
+int Contact::getIndex(void) const
+{
+	return this->index;
+}
+
 std::string Contact::getFirsName(void) const
 {
 	return this->_firstName;

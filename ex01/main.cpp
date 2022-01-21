@@ -71,7 +71,7 @@ int main(void)
 		}
 		if (userAction == "SEARCH")
 		{
-			std::cout << "User choose SEARCH!" << std::endl;	
+			phonebook.searchContact();	
 		}
 	}
     return 0;
