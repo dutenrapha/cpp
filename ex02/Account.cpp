@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:03:30 by coder             #+#    #+#             */
-/*   Updated: 2022/01/24 21:52:34 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/24 22:15:18 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,34 @@
 
 Account::Account(int initial_deposit)
 {
-	Account::_nbAccounts += 1;
-	this->_accountIndex = 0;
+
+	this->_accountIndex = Account::_nbAccounts;
 	this->_amount = 0;
 	this->_nbDeposits = 0;
 	this->_nbWithdrawals = 0;
+	Account::_nbAccounts += 1;
 	this->makeDeposit(initial_deposit);
 
 	Account::_displayTimestamp();
-	std::cout << " index:" << Account::getNbAccounts() << ";amount:" << Account::getTotalAmount() << ";created" << std::endl;
+	std::cout << " index:" << Account::_accountIndex << ";amount:" << Account::checkAmount() << ";created" << std::endl;
 }
 
 Account::Account(void)
 {
-	Account::_nbAccounts += 1;
-	this->_accountIndex = 0;
+	this->_accountIndex = Account::_nbAccounts;
 	this->_amount = 0;
 	this->_nbDeposits = 0;
 	this->_nbWithdrawals = 0;
-	return;
+	Account::_nbAccounts += 1;
+	
+	Account::_displayTimestamp();
+	std::cout << " index:" << Account::_accountIndex << ";amount:" << Account::checkAmount() << ";created" << std::endl;
 }
 
 Account::~Account(void)
 {
 	Account::_displayTimestamp();
-	std::cout << " index:" << Account::getNbAccounts() << ";amount:" << Account::getTotalAmount() << ";closed" << std::endl;
+	std::cout << " index:" << Account::_accountIndex << ";amount:" << Account::checkAmount() << ";closed" << std::endl;
 }
 
 int	Account::getNbAccounts( void )
@@ -79,7 +82,7 @@ void	Account::makeDeposit( int deposit )
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
-	if (this->_amount <= withdrawal)
+	if (this->_amount >= withdrawal)
 	{
 		this->_amount -= withdrawal;
 		this->_nbWithdrawals += 1;
