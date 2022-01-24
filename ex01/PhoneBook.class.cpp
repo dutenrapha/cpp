@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:38:36 by coder             #+#    #+#             */
-/*   Updated: 2022/01/24 02:02:13 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/24 02:30:54 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static std::string truncate(std::string field)
 	}
 }
 
-std::string PhoneBook::Display(int i, std::string field)
+std::string PhoneBook::displayMenu(int i, std::string field)
 {
 	std::string sentence;
 	
@@ -89,9 +89,28 @@ std::string PhoneBook::Display(int i, std::string field)
 	return (sentence);
 }
 
+void	PhoneBook::displayData(int option)
+{
+	if ((option > this->nContacts) || (option < 1))
+	{
+		std::cout << "Invalid option. Choose values between 1 and "<< this->nContacts << std::endl;
+	}
+	else
+	{
+		std::cout << "First name: " << this->contacts[option - 1].getFirsName() << std::endl;
+		std::cout << "Last name: " << this->contacts[option - 1].getlastName() << std::endl;
+		std::cout << "Nickname: " << this->contacts[option - 1].getNickname() << std::endl;
+		std::cout << "Phone number: " << this->contacts[option - 1].getPhoneNumber() << std::endl;
+		std::cout << "Darkest Secret: " << this->contacts[option - 1].getDarkestSecret() << std::endl;
+	}
+}
+
 void PhoneBook::searchContact(void)
 {
 	int i;
+	int index;	
+	std::string option;
+
 	if (this->nContacts > 0)
 	{
 		std::cout << std::setw(10);
@@ -108,13 +127,16 @@ void PhoneBook::searchContact(void)
 			std::cout << std::setw(10);
 			std::cout << this->contacts[i - 1].getIndex() << "|";
 			std::cout << std::setw(10);
-			std::cout << Display(i - 1, "firstName") << "|";
+			std::cout << displayMenu(i - 1, "firstName") << "|";
 			std::cout << std::setw(10);
-			std::cout << Display(i - 1, "lastName") << "|";
+			std::cout << displayMenu(i - 1, "lastName") << "|";
 			std::cout << std::setw(10);
-			std::cout << Display(i - 1, "nickname")<< "|"<< std::endl;
+			std::cout << displayMenu(i - 1, "nickname")<< "|"<< std::endl;
 		}
 		std::cout << "Choose the index of the contact you want more information" << std::endl;
+		std::cin >> option;
+		index = atoi(option.c_str());
+		displayData(index);
 	}
 	else
 	{

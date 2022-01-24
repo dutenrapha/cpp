@@ -6,13 +6,14 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:38:36 by coder             #+#    #+#             */
-/*   Updated: 2022/01/24 01:46:56 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/24 02:31:21 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_CLASS_H
 #define  PHONEBOOK_CLASS_H
 #include "Contact.class.hpp"
+#include <stdlib.h> 
 
 class PhoneBook {
 
@@ -22,9 +23,10 @@ public:
 
 	PhoneBook(void);
 	std::string 	getUserAction(void);
-	std::string		Display(int i, std::string field);
+	std::string		displayMenu(int i, std::string field);
 	void			addContact(void);
 	void 			searchContact(void);
+	void			displayData(int option);
 };
 
 #endif
