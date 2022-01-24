@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:38:36 by coder             #+#    #+#             */
-/*   Updated: 2022/01/21 19:22:58 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/24 02:02:13 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,44 @@ void PhoneBook::addContact(void)
 	std::cout << "contact successfully added" << std::endl;
 }
 
+static std::string truncate(std::string field)
+{
+	std::string	sentence;
+
+	if (field.length() > 10)
+	{
+		sentence = field.substr(0,10);
+		sentence[9] = '.';
+		return (sentence);
+	}
+	else
+	{
+		return (field);
+	}
+}
+
+std::string PhoneBook::Display(int i, std::string field)
+{
+	std::string sentence;
+	
+	if (field == "firstName")
+	{
+		sentence = this->contacts[i].getFirsName();
+		sentence = truncate(sentence);
+	}
+	if (field == "lastName")
+	{
+		sentence = this->contacts[i].getlastName();
+		sentence = truncate(sentence);
+	}
+	if (field == "nickname")
+	{
+		sentence = this->contacts[i].getNickname();
+		sentence = truncate(sentence);
+	}
+	return (sentence);
+}
+
 void PhoneBook::searchContact(void)
 {
 	int i;
@@ -70,12 +108,13 @@ void PhoneBook::searchContact(void)
 			std::cout << std::setw(10);
 			std::cout << this->contacts[i - 1].getIndex() << "|";
 			std::cout << std::setw(10);
-			std::cout << this->contacts[i - 1].getFirsName() << "|";
+			std::cout << Display(i - 1, "firstName") << "|";
 			std::cout << std::setw(10);
-			std::cout << this->contacts[i - 1].getlastName() << "|";
+			std::cout << Display(i - 1, "lastName") << "|";
 			std::cout << std::setw(10);
-			std::cout << this->contacts[i - 1].getNickname() << "|"<< std::endl;
+			std::cout << Display(i - 1, "nickname")<< "|"<< std::endl;
 		}
+		std::cout << "Choose the index of the contact you want more information" << std::endl;
 	}
 	else
 	{
