@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:38:36 by coder             #+#    #+#             */
-/*   Updated: 2022/01/24 02:30:54 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/24 02:45:29 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 PhoneBook::PhoneBook(void)
 {
 	this->nContacts = 0;
+}
+
+PhoneBook::~PhoneBook(void)
+{
+	std::cout << "Goodbye!" << std::endl;
 }
 
 std::string PhoneBook::getUserAction(void)
@@ -31,7 +36,7 @@ std::string PhoneBook::getUserAction(void)
 		std::cout << "ADD: save a new contact " << std::endl;
 		std::cout << "SEARCH: display a specific contact" << std::endl;
 		std::cout << "EXIT: exit the program" << std::endl;
-		std::cin >> option;
+		std::getline(std::cin, option);
 	}
 	return (option);
 }
@@ -134,7 +139,7 @@ void PhoneBook::searchContact(void)
 			std::cout << displayMenu(i - 1, "nickname")<< "|"<< std::endl;
 		}
 		std::cout << "Choose the index of the contact you want more information" << std::endl;
-		std::cin >> option;
+		std::getline(std::cin, option);
 		index = atoi(option.c_str());
 		displayData(index);
 	}

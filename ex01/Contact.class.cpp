@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 00:55:47 by coder             #+#    #+#             */
-/*   Updated: 2022/01/20 02:46:14 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/24 02:47:32 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void  Contact::setFirsName(void)
 	while (firstName == "")
 	{
 		std::cout << "First name: " << std::endl;
-		std::cin >> firstName;
+		std::getline(std::cin, firstName);
 	}
 	this->_firstName = firstName;
 }
@@ -69,7 +69,7 @@ void  Contact::setlastName(void)
 	while (lastName == "")
 	{
 		std::cout << "Last name: " << std::endl;
-		std::cin >> lastName;
+		std::getline(std::cin, lastName);
 	}
 	this->_lastName = lastName;
 }
@@ -82,7 +82,7 @@ void  Contact::setNickname(void)
 	while (nickname == "")
 	{
 		std::cout << "Nickname: " << std::endl;
-		std::cin >> nickname;
+		std::getline(std::cin, nickname);
 	}
 	this->_nickname = nickname;
 }
@@ -95,7 +95,7 @@ void  Contact::setPhoneNumber(void)
 	while (phoneNumber == "")
 	{
 		std::cout << "Phone number: " << std::endl;
-		std::cin >> phoneNumber;
+		std::getline(std::cin, phoneNumber);
 	}
 	this->_phoneNumber = phoneNumber;
 }
@@ -108,7 +108,7 @@ void  Contact::setDarkestSecret(void)
 	while (darkestSecret == "")
 	{
 		std::cout << "Darkest Secret: " << std::endl;
-		std::cin >> darkestSecret;
+		std::getline(std::cin, darkestSecret);
 	}
 	this->_darkestSecret = darkestSecret;
 }

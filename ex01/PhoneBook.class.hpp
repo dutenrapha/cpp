@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:38:36 by coder             #+#    #+#             */
-/*   Updated: 2022/01/24 02:31:21 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/24 02:42:15 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ public:
 	Contact contacts[8];
 
 	PhoneBook(void);
+	~PhoneBook(void);
 	std::string 	getUserAction(void);
 	std::string		displayMenu(int i, std::string field);
 	void			addContact(void);
