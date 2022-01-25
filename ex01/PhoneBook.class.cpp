@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 23:38:36 by coder             #+#    #+#             */
-/*   Updated: 2022/01/24 02:45:29 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/25 19:56:02 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 PhoneBook::PhoneBook(void)
 {
 	this->nContacts = 0;
+	this->currentIndex = 0;
 }
 
 PhoneBook::~PhoneBook(void)
@@ -46,13 +47,16 @@ void PhoneBook::addContact(void)
 	std::string option;
 	if (this->nContacts != 8)
 		this->nContacts +=1;
-	this->contacts[this->nContacts - 1].index = this->nContacts;
-	this->contacts[this->nContacts - 1].setFirsName();
-	this->contacts[this->nContacts - 1].setlastName();
-	this->contacts[this->nContacts - 1].setNickname();
-	this->contacts[this->nContacts - 1].setPhoneNumber();
-	this->contacts[this->nContacts - 1].setDarkestSecret();
-
+	this->contacts[this->currentIndex].index = this->currentIndex + 1;
+	this->contacts[this->currentIndex].setFirsName();
+	this->contacts[this->currentIndex].setlastName();
+	this->contacts[this->currentIndex].setNickname();
+	this->contacts[this->currentIndex].setPhoneNumber();
+	this->contacts[this->currentIndex].setDarkestSecret();
+	if (this->currentIndex == 7)
+		this->currentIndex = 0;
+	else
+		this->currentIndex += 1;
 	std::cout << "contact successfully added" << std::endl;
 }
 

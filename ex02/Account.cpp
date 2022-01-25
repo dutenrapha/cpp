@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:03:30 by coder             #+#    #+#             */
-/*   Updated: 2022/01/24 23:40:03 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/25 20:27:55 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	Account::makeDeposit( int deposit )
 	Account::_displayTimestamp();
 	std::cout << " index:" << Account::_accountIndex 
 			  << ";p_amount:" << Account::checkAmount() 
-			  << ";withdrawal:" << deposit
+			  << ";deposit:" << deposit
 			  << ";amount:" << Account::checkAmount() + deposit				  
 			  << ";nb_deposits:" << this->_nbWithdrawals + 1<< std::endl;
 	this->_amount += deposit;
@@ -99,9 +99,9 @@ bool	Account::makeWithdrawal( int withdrawal )
 		Account::_displayTimestamp();
 		std::cout << " index:" << Account::_accountIndex 
 				  << ";p_amount:" << Account::checkAmount() 
-				  << ";deposit:" << withdrawal
+				  << ";withdrawal:" << withdrawal
 				  << ";amount:" << Account::checkAmount() - withdrawal				  
-				  << ";withdrawals:" << this->_nbWithdrawals + 1<< std::endl;
+				  << ";nb_withdrawals:" << this->_nbWithdrawals + 1<< std::endl;
 		this->_amount -= withdrawal;
 		this->_nbWithdrawals += 1;
 		Account::_totalAmount -= withdrawal;
@@ -113,7 +113,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 		Account::_displayTimestamp();
 		std::cout << " index:" << Account::_accountIndex 
 						<< ";p_amount:" << Account::checkAmount() 
-						<< ";withdrawal:refused:" << std::endl;
+						<< ";withdrawal:refused" << std::endl;
 		return (false);
 	}
 }
